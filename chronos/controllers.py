@@ -16,7 +16,8 @@ class Controller(object):
 
     @pyramid.view.view_config(route_name='graph')
     def graph(self, request):
-        results = models.ResultCollection(db=request.db, window=3600)
+        window = int(request.GET.get('window', 3600))
+        results = models.ResultCollection(db=request.db, window=window)
         x_values = [str(m.begin_timestamp) for m in results]
         y_values = [str(m.duration) for m in results]
         x_value_str = ','.join(x_values)
