@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS results (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(255) NOT NULL,
+    duration INTEGER NOT NULL,
+    begin_timestamp INTEGER NOT NULL
+);
